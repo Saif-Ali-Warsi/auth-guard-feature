@@ -1,59 +1,82 @@
-# AuthGuardFeature
+A Route Guard is a mechanism used to control navigation between routes. It decides whether a user can access, leave, or load a route based on specific conditions such as authentication or authorization.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.28.
+# Angular Routing & Auth Guard
 
-## Development server
+A simple Angular application demonstrating Routing, Navigation, Authentication, and Route Protection using Functional Guards.
 
-To start a local development server, run:
+## Features
 
-```bash
-ng serve
+- Login Page
+- Dashboard Page
+- Route Navigation
+- Authentication Service
+- Functional Auth Guard (`CanActivateFn`)
+- Protected Dashboard Route
+- Login & Logout Functionality
+
+## Project Structure
+
+```text
+src/
+│
+├── core/
+│   ├── services/
+│   │   └── auth-service.ts
+│   └── guards/
+│       └── auth-guard.ts
+│
+├── pages/
+│   ├── login/
+│   └── dashboard/
+│
+└── app.routes.ts
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Authentication Flow
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+User Login
+    ↓
+AuthService.login()
+    ↓
+isLoggedIn = true
+    ↓
+Navigate to Dashboard
+    ↓
+Auth Guard Checks User
+    ↓
+Access Granted
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Concepts Covered
 
-```bash
-ng generate --help
-```
+- Angular Routing
+- Router Outlet
+- Route Navigation
+- Route Redirection
+- Dependency Injection
+- Authentication Service
+- Functional Route Guards
+- Route Protection with `CanActivate`
 
-## Building
+## Key Learnings
 
-To build the project run:
+### Routing
 
-```bash
-ng build
-```
+Used Angular Router to navigate between Login and Dashboard pages without reloading the application.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Authentication Service
 
-## Running unit tests
+Managed login state using a shared service.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Auth Guard
 
-```bash
-ng test
-```
+Protected the Dashboard route and redirected unauthenticated users to the Login page.
 
-## Running end-to-end tests
+### Dependency Injection
 
-For end-to-end (e2e) testing, run:
+Used Angular's modern `inject()` API to access services and router instances.
 
-```bash
-ng e2e
-```
+## Outcome
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Built a basic authentication flow where users can log in, access protected routes, and log out while understanding how Angular Routing and Guards work together.
